@@ -5,8 +5,8 @@
  */
 package kata1;
 
-import java.util.Date;
-
+import java.time.LocalDate;
+import java.time.Month;
 /**
  *
  * @author Ericç
@@ -18,7 +18,7 @@ public class Kata1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Person person = new Person("Eric", new Date(49,8,24));
+        Person person = new Person("Eric", LocalDate.of(1980,Month.MARCH,20));
         System.out.println(person.getName() + " tiene " + person.getAge());
                
     }

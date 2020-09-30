@@ -1,28 +1,30 @@
 package kata1;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 public class Person {
     private final String name;
-    private final Date birthdate;
+    private final LocalDate birthDate;
 
-    public Person(String name, Date birthdate) {
+    public Person(String name, LocalDate birthDate) {
         this.name = name;
-        this.birthdate = birthdate;
+        this.birthDate = birthDate;
     }
 
     public String getName() {
         return name;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
+    public LocalDate getBirthdate() {
+        return birthDate;
     }
     
     public int getAge(){
-        return (int) ((new Date().getTime() - birthdate.getTime()) / 31536000000L);
+        return toYears(LocalDate.now().toEpochDay() - this.birthDate.toEpochDay());
     }
     
-    
-    
+    private int toYears(long days){
+        return (int)(days/365.25);
+    }
+  
 }
